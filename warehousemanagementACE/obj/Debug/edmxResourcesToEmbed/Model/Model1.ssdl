@@ -1,0 +1,244 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="warehousesModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="buying invoice p">
+    <Key>
+      <PropertyRef Name="B-I-Order Number" />
+      <PropertyRef Name="P-Id" />
+    </Key>
+    <Property Name="B-I-Order Number" Type="int" Nullable="false" />
+    <Property Name="P-Id" Type="int" Nullable="false" />
+    <Property Name="amount" Type="int" />
+  </EntityType>
+  <EntityType Name="Buying Invoives">
+    <Key>
+      <PropertyRef Name="Order Number" />
+    </Key>
+    <Property Name="P-Date" Type="datetime" />
+    <Property Name="buying Date" Type="datetime" />
+    <Property Name="Expiry" Type="int" />
+    <Property Name="Order Number" Type="int" Nullable="false" />
+    <Property Name="W-Name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="S-Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Customer">
+    <Key>
+      <PropertyRef Name="C-Id" />
+    </Key>
+    <Property Name="Phone" Type="int" />
+    <Property Name="Email" Type="varchar" MaxLength="50" />
+    <Property Name="Fax" Type="varchar" MaxLength="50" />
+    <Property Name="Website" Type="varchar" MaxLength="50" />
+    <Property Name="Name" Type="varchar" MaxLength="50" />
+    <Property Name="C-Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Managers">
+    <Key>
+      <PropertyRef Name="M-Id" />
+    </Key>
+    <Property Name="M-Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Username" Type="varchar" MaxLength="50" />
+    <Property Name="Password" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Products">
+    <Key>
+      <PropertyRef Name="P-Id" />
+    </Key>
+    <Property Name="P-Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Measuring unit" Type="varchar" MaxLength="20" />
+    <Property Name="p_Name" Type="varchar" MaxLength="50" />
+    <Property Name="W_name" Type="varchar" MaxLength="50" />
+    <Property Name="amount" Type="int" />
+  </EntityType>
+  <EntityType Name="selling invoice p">
+    <Key>
+      <PropertyRef Name="S-I-Order Number" />
+      <PropertyRef Name="P-Id" />
+    </Key>
+    <Property Name="S-I-Order Number" Type="int" Nullable="false" />
+    <Property Name="P-Id" Type="int" Nullable="false" />
+    <Property Name="amount" Type="int" />
+  </EntityType>
+  <EntityType Name="Selling Invoices">
+    <Key>
+      <PropertyRef Name="Order Number" />
+    </Key>
+    <Property Name="Selling Date" Type="datetime" />
+    <Property Name="Order Number" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="W-Name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="C-Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Supplier">
+    <Key>
+      <PropertyRef Name="S-Id" />
+    </Key>
+    <Property Name="Phone" Type="int" />
+    <Property Name="Email" Type="varchar" MaxLength="50" />
+    <Property Name="Fax" Type="varchar" MaxLength="50" />
+    <Property Name="Website" Type="varchar" MaxLength="50" />
+    <Property Name="Name" Type="varchar" MaxLength="50" />
+    <Property Name="S-Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Warehouses">
+    <Key>
+      <PropertyRef Name="Name" />
+    </Key>
+    <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Address" Type="varchar" MaxLength="50" />
+    <Property Name="Manager-Id" Type="int" />
+  </EntityType>
+  <Association Name="contains">
+    <End Role="Warehouses" Type="Self.Warehouses" Multiplicity="1" />
+    <End Role="Selling Invoices" Type="Self.Selling Invoices" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Warehouses">
+        <PropertyRef Name="Name" />
+      </Principal>
+      <Dependent Role="Selling Invoices">
+        <PropertyRef Name="W-Name" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_W_Name">
+    <End Role="Warehouses" Type="Self.Warehouses" Multiplicity="0..1" />
+    <End Role="Products" Type="Self.Products" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Warehouses">
+        <PropertyRef Name="Name" />
+      </Principal>
+      <Dependent Role="Products">
+        <PropertyRef Name="W_name" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FKB-I_Produc618643">
+    <End Role="Products" Type="Self.Products" Multiplicity="1" />
+    <End Role="buying invoice p" Type="Self.buying invoice p" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Products">
+        <PropertyRef Name="P-Id" />
+      </Principal>
+      <Dependent Role="buying invoice p">
+        <PropertyRef Name="P-Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FKB-I_Produc703178">
+    <End Role="Buying Invoives" Type="Self.Buying Invoives" Multiplicity="1" />
+    <End Role="buying invoice p" Type="Self.buying invoice p" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Buying Invoives">
+        <PropertyRef Name="Order Number" />
+      </Principal>
+      <Dependent Role="buying invoice p">
+        <PropertyRef Name="B-I-Order Number" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FKBuying Inv400775">
+    <End Role="Supplier" Type="Self.Supplier" Multiplicity="1" />
+    <End Role="Buying Invoives" Type="Self.Buying Invoives" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Supplier">
+        <PropertyRef Name="S-Id" />
+      </Principal>
+      <Dependent Role="Buying Invoives">
+        <PropertyRef Name="S-Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FKBuying Inv821887">
+    <End Role="Warehouses" Type="Self.Warehouses" Multiplicity="1" />
+    <End Role="Buying Invoives" Type="Self.Buying Invoives" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Warehouses">
+        <PropertyRef Name="Name" />
+      </Principal>
+      <Dependent Role="Buying Invoives">
+        <PropertyRef Name="W-Name" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FKS-I_Produc350970">
+    <End Role="Selling Invoices" Type="Self.Selling Invoices" Multiplicity="1" />
+    <End Role="selling invoice p" Type="Self.selling invoice p" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Selling Invoices">
+        <PropertyRef Name="Order Number" />
+      </Principal>
+      <Dependent Role="selling invoice p">
+        <PropertyRef Name="S-I-Order Number" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FKS-I_Produc944529">
+    <End Role="Products" Type="Self.Products" Multiplicity="1" />
+    <End Role="selling invoice p" Type="Self.selling invoice p" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Products">
+        <PropertyRef Name="P-Id" />
+      </Principal>
+      <Dependent Role="selling invoice p">
+        <PropertyRef Name="P-Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="has">
+    <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+    <End Role="Selling Invoices" Type="Self.Selling Invoices" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customer">
+        <PropertyRef Name="C-Id" />
+      </Principal>
+      <Dependent Role="Selling Invoices">
+        <PropertyRef Name="C-Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="warehousesModelStoreContainer">
+    <EntitySet Name="buying invoice p" EntityType="Self.buying invoice p" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Buying Invoives" EntityType="Self.Buying Invoives" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Customer" EntityType="Self.Customer" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Managers" EntityType="Self.Managers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Products" EntityType="Self.Products" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="selling invoice p" EntityType="Self.selling invoice p" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Selling Invoices" EntityType="Self.Selling Invoices" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Supplier" EntityType="Self.Supplier" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Warehouses" EntityType="Self.Warehouses" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="contains" Association="Self.contains">
+      <End Role="Warehouses" EntitySet="Warehouses" />
+      <End Role="Selling Invoices" EntitySet="Selling Invoices" />
+    </AssociationSet>
+    <AssociationSet Name="FK_W_Name" Association="Self.FK_W_Name">
+      <End Role="Warehouses" EntitySet="Warehouses" />
+      <End Role="Products" EntitySet="Products" />
+    </AssociationSet>
+    <AssociationSet Name="FKB-I_Produc618643" Association="Self.FKB-I_Produc618643">
+      <End Role="Products" EntitySet="Products" />
+      <End Role="buying invoice p" EntitySet="buying invoice p" />
+    </AssociationSet>
+    <AssociationSet Name="FKB-I_Produc703178" Association="Self.FKB-I_Produc703178">
+      <End Role="Buying Invoives" EntitySet="Buying Invoives" />
+      <End Role="buying invoice p" EntitySet="buying invoice p" />
+    </AssociationSet>
+    <AssociationSet Name="FKBuying Inv400775" Association="Self.FKBuying Inv400775">
+      <End Role="Supplier" EntitySet="Supplier" />
+      <End Role="Buying Invoives" EntitySet="Buying Invoives" />
+    </AssociationSet>
+    <AssociationSet Name="FKBuying Inv821887" Association="Self.FKBuying Inv821887">
+      <End Role="Warehouses" EntitySet="Warehouses" />
+      <End Role="Buying Invoives" EntitySet="Buying Invoives" />
+    </AssociationSet>
+    <AssociationSet Name="FKS-I_Produc350970" Association="Self.FKS-I_Produc350970">
+      <End Role="Selling Invoices" EntitySet="Selling Invoices" />
+      <End Role="selling invoice p" EntitySet="selling invoice p" />
+    </AssociationSet>
+    <AssociationSet Name="FKS-I_Produc944529" Association="Self.FKS-I_Produc944529">
+      <End Role="Products" EntitySet="Products" />
+      <End Role="selling invoice p" EntitySet="selling invoice p" />
+    </AssociationSet>
+    <AssociationSet Name="has" Association="Self.has">
+      <End Role="Customer" EntitySet="Customer" />
+      <End Role="Selling Invoices" EntitySet="Selling Invoices" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

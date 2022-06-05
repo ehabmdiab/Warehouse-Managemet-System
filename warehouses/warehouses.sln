@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.1800
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F14B399A-7131-4C87-9E4B-1186C45EF12D}") = "warehouses", "warehouses\warehouses.rptproj", "{38FE090F-C9E4-4111-A6C8-3202C59B8D6D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Default = Debug|Default
+		DebugLocal|Default = DebugLocal|Default
+		Release|Default = Release|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{38FE090F-C9E4-4111-A6C8-3202C59B8D6D}.Debug|Default.ActiveCfg = Debug
+		{38FE090F-C9E4-4111-A6C8-3202C59B8D6D}.Debug|Default.Build.0 = Debug
+		{38FE090F-C9E4-4111-A6C8-3202C59B8D6D}.Debug|Default.Deploy.0 = Debug
+		{38FE090F-C9E4-4111-A6C8-3202C59B8D6D}.DebugLocal|Default.ActiveCfg = DebugLocal
+		{38FE090F-C9E4-4111-A6C8-3202C59B8D6D}.DebugLocal|Default.Build.0 = DebugLocal
+		{38FE090F-C9E4-4111-A6C8-3202C59B8D6D}.Release|Default.ActiveCfg = Release
+		{38FE090F-C9E4-4111-A6C8-3202C59B8D6D}.Release|Default.Build.0 = Release
+		{38FE090F-C9E4-4111-A6C8-3202C59B8D6D}.Release|Default.Deploy.0 = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9B8E5C13-0B2F-426B-BC8A-20F93B79F48D}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,25 @@
+CREATE TABLE Managers ([M-Id] int IDENTITY NOT NULL, Username varchar(50) NULL, Password varchar(50) NULL, PRIMARY KEY ([M-Id]));
+CREATE TABLE Warehouses ([ManagersM-Id] int NOT NULL, Name varchar(50) NOT NULL, Address varchar(50) NULL, PRIMARY KEY (Name));
+CREATE TABLE Products ([P-Id] int IDENTITY NOT NULL, [Measuring unit] varchar(20) NULL, p_Name varchar(50) NULL, PRIMARY KEY ([P-Id]));
+CREATE TABLE Warehouses_Products (W_Name varchar(50) NOT NULL, [P-Id] int NOT NULL, amount int NULL, [Column] int NULL, PRIMARY KEY (W_Name, [P-Id]));
+CREATE TABLE [W-Products] ([W-Name] varchar(50) NOT NULL, [P-Id] int NOT NULL, amount int NULL, PRIMARY KEY ([W-Name], [P-Id]));
+CREATE TABLE [Buying Invoives] ([P-Date] datetime NULL, [buying Date] datetime NULL, Expiry datetime NULL, [Order Number] int IDENTITY NOT NULL, [W-Name] varchar(50) NOT NULL, [S-Id] int NOT NULL, PRIMARY KEY ([Order Number]));
+CREATE TABLE [Selling Invoices] ([Buying Date] datetime NULL, [Order Number] int IDENTITY NOT NULL, [W-Name] varchar(50) NOT NULL, [C-Id] int NOT NULL, PRIMARY KEY ([Order Number]));
+CREATE TABLE Supplier (Phone int NULL, Email varchar(50) NULL, Fax varchar(50) NULL, Website varchar(50) NULL, Name varchar(50) NULL, [S-Id] int IDENTITY NOT NULL, PRIMARY KEY ([S-Id]));
+CREATE TABLE Customer (Phone int NULL, Email varchar(50) NULL, Fax varchar(50) NULL, Website varchar(50) NULL, Name varchar(50) NULL, [C-Id] int IDENTITY NOT NULL, PRIMARY KEY ([C-Id]));
+CREATE TABLE [B-I_Products] ([B-I-Order Number] int NOT NULL, [P-Id] int NOT NULL, PRIMARY KEY ([B-I-Order Number], [P-Id]));
+CREATE TABLE [S-I_Products] ([S-I-Order Number] int NOT NULL, [P-Id] int NOT NULL, PRIMARY KEY ([S-I-Order Number], [P-Id]));
+ALTER TABLE Warehouses ADD CONSTRAINT Manage FOREIGN KEY ([ManagersM-Id]) REFERENCES Managers ([M-Id]);
+ALTER TABLE Warehouses_Products ADD CONSTRAINT FKWarehouses943669 FOREIGN KEY (W_Name) REFERENCES Warehouses (Name);
+ALTER TABLE Warehouses_Products ADD CONSTRAINT FKWarehouses554559 FOREIGN KEY ([P-Id]) REFERENCES Products ([P-Id]);
+ALTER TABLE [W-Products] ADD CONSTRAINT [FKW-Products43053] FOREIGN KEY ([W-Name]) REFERENCES Warehouses (Name);
+ALTER TABLE [W-Products] ADD CONSTRAINT [FKW-Products256067] FOREIGN KEY ([P-Id]) REFERENCES Products ([P-Id]);
+ALTER TABLE [B-I_Products] ADD CONSTRAINT [FKB-I_Produc703178] FOREIGN KEY ([B-I-Order Number]) REFERENCES [Buying Invoives] ([Order Number]);
+ALTER TABLE [B-I_Products] ADD CONSTRAINT [FKB-I_Produc618643] FOREIGN KEY ([P-Id]) REFERENCES Products ([P-Id]);
+ALTER TABLE [Buying Invoives] ADD CONSTRAINT [FKBuying Inv821887] FOREIGN KEY ([W-Name]) REFERENCES Warehouses (Name);
+ALTER TABLE [S-I_Products] ADD CONSTRAINT [FKS-I_Produc350970] FOREIGN KEY ([S-I-Order Number]) REFERENCES [Selling Invoices] ([Order Number]);
+ALTER TABLE [S-I_Products] ADD CONSTRAINT [FKS-I_Produc944529] FOREIGN KEY ([P-Id]) REFERENCES Products ([P-Id]);
+ALTER TABLE [Selling Invoices] ADD CONSTRAINT [contains] FOREIGN KEY ([W-Name]) REFERENCES Warehouses (Name);
+ALTER TABLE [Buying Invoives] ADD CONSTRAINT [FKBuying Inv400775] FOREIGN KEY ([S-Id]) REFERENCES Supplier ([S-Id]);
+ALTER TABLE [Selling Invoices] ADD CONSTRAINT has FOREIGN KEY ([C-Id]) REFERENCES Customer ([C-Id]);
+

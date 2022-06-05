@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="warehousesModelStoreContainer" CdmEntityContainer="warehousesEntities">
+    <EntitySetMapping Name="buying_invoice_p">
+      <EntityTypeMapping TypeName="warehousesModel.buying_invoice_p">
+        <MappingFragment StoreEntitySet="buying invoice p">
+          <ScalarProperty Name="B_I_Order_Number" ColumnName="B-I-Order Number" />
+          <ScalarProperty Name="P_Id" ColumnName="P-Id" />
+          <ScalarProperty Name="amount" ColumnName="amount" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Buying_Invoives">
+      <EntityTypeMapping TypeName="warehousesModel.Buying_Invoives">
+        <MappingFragment StoreEntitySet="Buying Invoives">
+          <ScalarProperty Name="P_Date" ColumnName="P-Date" />
+          <ScalarProperty Name="buying_Date" ColumnName="buying Date" />
+          <ScalarProperty Name="Expiry" ColumnName="Expiry" />
+          <ScalarProperty Name="Order_Number" ColumnName="Order Number" />
+          <ScalarProperty Name="W_Name" ColumnName="W-Name" />
+          <ScalarProperty Name="S_Id" ColumnName="S-Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Customer">
+      <EntityTypeMapping TypeName="warehousesModel.Customer">
+        <MappingFragment StoreEntitySet="Customer">
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Fax" ColumnName="Fax" />
+          <ScalarProperty Name="Website" ColumnName="Website" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="C_Id" ColumnName="C-Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Managers">
+      <EntityTypeMapping TypeName="warehousesModel.Managers">
+        <MappingFragment StoreEntitySet="Managers">
+          <ScalarProperty Name="M_Id" ColumnName="M-Id" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Products">
+      <EntityTypeMapping TypeName="warehousesModel.Products">
+        <MappingFragment StoreEntitySet="Products">
+          <ScalarProperty Name="P_Id" ColumnName="P-Id" />
+          <ScalarProperty Name="Measuring_unit" ColumnName="Measuring unit" />
+          <ScalarProperty Name="p_Name" ColumnName="p_Name" />
+          <ScalarProperty Name="W_name" ColumnName="W_name" />
+          <ScalarProperty Name="amount" ColumnName="amount" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="selling_invoice_p">
+      <EntityTypeMapping TypeName="warehousesModel.selling_invoice_p">
+        <MappingFragment StoreEntitySet="selling invoice p">
+          <ScalarProperty Name="S_I_Order_Number" ColumnName="S-I-Order Number" />
+          <ScalarProperty Name="P_Id" ColumnName="P-Id" />
+          <ScalarProperty Name="amount" ColumnName="amount" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Selling_Invoices">
+      <EntityTypeMapping TypeName="warehousesModel.Selling_Invoices">
+        <MappingFragment StoreEntitySet="Selling Invoices">
+          <ScalarProperty Name="Selling_Date" ColumnName="Selling Date" />
+          <ScalarProperty Name="Order_Number" ColumnName="Order Number" />
+          <ScalarProperty Name="W_Name" ColumnName="W-Name" />
+          <ScalarProperty Name="C_Id" ColumnName="C-Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Supplier">
+      <EntityTypeMapping TypeName="warehousesModel.Supplier">
+        <MappingFragment StoreEntitySet="Supplier">
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Fax" ColumnName="Fax" />
+          <ScalarProperty Name="Website" ColumnName="Website" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="S_Id" ColumnName="S-Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Warehouses">
+      <EntityTypeMapping TypeName="warehousesModel.Warehouses">
+        <MappingFragment StoreEntitySet="Warehouses">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Manager_Id" ColumnName="Manager-Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

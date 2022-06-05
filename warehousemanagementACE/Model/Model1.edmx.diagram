@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="97e4b684d1e04523ad768d0856f8a470" Name="Diagram1" ZoomLevel="74">
+        <EntityTypeShape EntityType="warehousesModel.buying_invoice_p" Width="1.5" PointX="8.25" PointY="6.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="warehousesModel.Buying_Invoives" Width="1.5" PointX="3" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="warehousesModel.Customer" Width="1.5" PointX="3.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="warehousesModel.Managers" Width="1.5" PointX="5.75" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="warehousesModel.Products" Width="1.5" PointX="3" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="warehousesModel.selling_invoice_p" Width="1.5" PointX="5.25" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="warehousesModel.Selling_Invoices" Width="1.5" PointX="6" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="warehousesModel.Supplier" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="warehousesModel.Warehouses" Width="1.5" PointX="0.75" PointY="4.875" IsExpanded="true" />
+        <AssociationConnector Association="warehousesModel.FKB_I_Produc618643" ManuallyRouted="false" />
+        <AssociationConnector Association="warehousesModel.FKB_I_Produc703178" ManuallyRouted="false" />
+        <AssociationConnector Association="warehousesModel.FKBuying_Inv400775" ManuallyRouted="false" />
+        <AssociationConnector Association="warehousesModel.FKBuying_Inv821887" ManuallyRouted="false" />
+        <AssociationConnector Association="warehousesModel.has" ManuallyRouted="false" />
+        <AssociationConnector Association="warehousesModel.FK_W_Name" ManuallyRouted="false" />
+        <AssociationConnector Association="warehousesModel.FKS_I_Produc944529" ManuallyRouted="false" />
+        <AssociationConnector Association="warehousesModel.FKS_I_Produc350970" ManuallyRouted="false" />
+        <AssociationConnector Association="warehousesModel.contains" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
